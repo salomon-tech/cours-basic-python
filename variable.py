@@ -1,3 +1,5 @@
+"""Les types des variable avec python"""
+
 name = "salomon" # string
 age = 17 # integer
 heigth = 1.78 # float
