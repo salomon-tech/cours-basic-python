@@ -1,3 +1,7 @@
+"""La gestion des fichiers en python
+
+est essentielle pour lire, ecrire et manipuler des donnees stockees dans des fichiers externes."""
+
 # writing file
 
 with open("file.txt", "w", encoding="utf-8") as f:
