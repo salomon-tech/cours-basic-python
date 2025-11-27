@@ -9,8 +9,8 @@ class Animal:
   def description(self):
     return f"{self.name} have {self.age} years old"
   
-class Dog:
-  def speak(Animal):
+class Dog(Animal):
+  def speak(self):
     return "wooof!!!"
   
   def hunter(self):
@@ -19,9 +19,10 @@ class Dog:
 class Cat(Animal):
   def climb(self):
     return f"{self.name} climb a tree"
-  
+
+A = Dog("Almand", 5)  
 B = Cat("Miauuu!", 2)
-A = Dog("Almand", 5)
+
 
 animals = [Dog, Cat]
 for animal in animals:
