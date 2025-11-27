@@ -1,3 +1,8 @@
+"""
+les objets sont des instances de classes. Une classe est un plan (blueprint) pour créer des objets.
+"""
+
+
 class Person:
 
   # class attribute
