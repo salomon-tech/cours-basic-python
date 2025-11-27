@@ -5,8 +5,8 @@ est essentielle pour lire, ecrire et manipuler des donnees stockees dans des fic
 # writing file
 
 with open("file.txt", "w", encoding="utf-8") as f:
-  f.write("line 1\n")
-  f.write("line 2\n")
+  f.write("hi i'm HK7\n")
+  f.write("Student from ISESOD-GOMA\n")
 
 # reading file
 
