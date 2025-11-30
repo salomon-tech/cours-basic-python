@@ -13,19 +13,14 @@ class GestionnaireBD:
     print("connextion a la base de donnee etablie")
 
   def creer_table(self):
-    self.curseur.execute(
-
-      #users table
-      '''
+    self.curseur.execute('''
           CREATE TABLE IF NOT EXIST Utilisateurs (
           id INTEGER PRIMARY KEY AUTOINCREMENT,
           nom TEXT NOT NULL,
           email TEXT UNIQUE NOT NULL,
-          date_creation DATETIME DEFAULT CURRENT_TIMESTAMP
-          )
+          date_creation DATETIME DEFAULT CURRENT_TIMESTAMP)
       '''
-
-    )
+)
 
     #products table
 
