@@ -96,3 +96,31 @@ les mise a jours et la supression des donnee dans une base de donnee!"""
       self.curseur.execute(query, params)
       self.connexion.commit()
       print(f"Utilisateur {id_utilisateur} mis a jour")
+
+  def supprimer_utilisateur(self, id_utilisatuer):
+    self.curseur.execute('DELETE Utilisateur WHERE id = ?', (id_utilisatuer))
+    self.connexion.commit()
+    print(f"Utilisateur {id_utilisatuer} supprimer avec succee")
+
+  def ferme_connexion(self):
+    if self.connexion:
+      self.connexion.close()
+      print("connexion fermer")
+
+if __name__=='__main__':
+  bd = GestionnaireBD()
+  bd.connecter()
+  bd.creer_table()
+
+  # ajout des infos dans la bd
+
+  bd.ajouter_utlisateur('salomon HK7', 'salomon@gmail.com', 20)
+  bd.ajouter_utlisateur("Bella RICHARD", 'rechard@gmail.fr', 26)
+
+  # afficher les infos de la db
+
+  Utilisateur = bd.obtenir_utilisateur()
+  for user in Utilisateur:
+    print(user)
+
+  bd.ferme_connexion()
