@@ -43,3 +43,56 @@ class GestionnaireBD:
 
     self.connexion.commit()
     print("tables creer avec succees")
+
+
+  """Les CRUD en python
+
+Les CRUD c'est un systeme qui fait la creation, la lecture,
+les mise a jours et la supression des donnee dans une base de donnee!"""
+
+  def ajouter_utlisateur(self, nom, email, age=None):
+    try:
+      self.curseur.execute('''
+      INSERT INTO utilisateurs (nom, email, age) VALUES (?, ?, ?)      
+''', (nom, email, age))
+      self.connexion.commit()
+      print(f"Utilisateur {nom} ajouter avec succee")
+      return True
+    except sqlite3.IntegrityError:
+      print("erreur email existe deja")
+      return False
+  def obtenir_utilisateur(self):
+    self.curseur.execute('SELECT * FROM Utilisatuers')
+    return self.curseur.fetchall()
+  
+  def rechercher_utilisateur(self, nom=None, email=None):
+    query = "SELECT * FROM Utilisatuers WHERE 1=1"
+    params = []
+
+    if nom:
+      query += " AND nom LIKE ?"
+      params.append(f"%{nom}%")
+    if email:
+      query += "AND email LIKE ?"
+      params.append(f"%{email}%")
+    self.curseur.execute(query, params)
+    return self.curseur.fetchall()
+  def mettre_a_jour_utilisateur(self, id_utilisateur, nom=None, email=None, age=None):
+    update = []
+    params = []
+
+    if nom:
+      update.append("nom = ?")
+      params.append(nom)
+    if email:
+      update.append("email = ?")
+      params.append(email)
+    if age is not None:
+      update.append("age = ?")
+      params.append(age)
+    if update:
+      params.append(id_utilisateur)
+      query = f"UPDATE Utilisateurs SET {','.join(update)} WHERE id = ?"
+      self.curseur.execute(query, params)
+      self.connexion.commit()
+      print(f"Utilisateur {id_utilisateur} mis a jour")
