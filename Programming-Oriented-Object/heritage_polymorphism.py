@@ -28,10 +28,10 @@ class Cat(Animal):
   def climb(self):
     return f"{self.name} climbs a tree"
 def main():
-  Dog = Dog("Almand", 5)
-  Cat = Cat("Miauuu!", 2)
+  dog = Dog("Almand", 5)
+  cat = Cat("Miauuu!", 2)
 
-  animals = [Dog, Cat]
+  animals = [dog, cat]
   for animal in animals:
     print(f"{animal.description()} - {animal.speak()}")
 
