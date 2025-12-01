@@ -1,5 +1,6 @@
 import tkinter as ttk
-from tkinter import messagebox, Tk
+import tkinter as tk
+from tkinter import messagebox
 
 class Interface:
   def __init__(self, root):
@@ -46,6 +47,7 @@ class Interface:
     # les labels et entrees
 
     ttk.Label(input_frame, text='nom : ').grid(row=0, column=0, sticky=tk.w, padx=5, pady=5)
-
+    self.entry_nom = ttk.Entry(input_frame, width=30)
+    self.entry_nom.grid(row=0, column=1, padx=5, pady=5)
     
 
